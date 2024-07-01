@@ -1,4 +1,5 @@
 import { categoryModel } from "../models/category_model.js";
+import { RecipeModel } from "../models/recipe.js";
  
 export const getCategories = async (req, res, next) => {
     try {
