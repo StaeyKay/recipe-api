@@ -11,12 +11,14 @@ await mongoose.connect(process.env.mongo_url);
 const app = express();
 // The following lines of code are to generate the documentation. First install express-oas-generator
 expressOasGenerator.handleResponses(app, {
+    alwaysServeDocs: true,
     tags: ['categories', 'recipes'],
     mongooseModels: mongoose.modelNames(),
 });
 
 // Apply middlewares
 app.use(express.json());
+app.use(express.static('uploads'));
 
 // Use routes. Other routes defined in other files can be used here
 app.use(recipeRouter);

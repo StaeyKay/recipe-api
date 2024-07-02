@@ -1,0 +1,6 @@
+install multer to save files on your API
+Go to expressjs and search for multer
+Install the multer and import installCreate the upload file in the category_router.js file
+Set up an upload middleware
+Static files in expressjs
+
