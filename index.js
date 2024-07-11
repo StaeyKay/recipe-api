@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import expressOasGenerator from "express-oas-generator";
 import session from "express-session";
+import MongoStore from "connect-mongo";
 import recipeRouter from "./routes/recipe.js";
 import categoryRouter from "./routes/category_routes.js";
 import userRouter from "./routes/user_router.js";
@@ -27,7 +28,10 @@ app.use(session({
     secret: process.env.SESSION_SECRET, //encrypts the file
     resave: false,
     saveUninitialized: true,
-    cookie: {secure: true}
+    // cookie: {secure: true}
+    store: MongoStore.create({
+        mongoUrl: process.env.mongo_url
+    })
 }));
 
 // Use routes. Other routes defined in other files can be used here

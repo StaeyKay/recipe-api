@@ -37,7 +37,7 @@ export const postRecipes = async (req, res, next) => {
 // Patch recipe
 export const patchRecipe = async (req, res, next) => {
     try {
-        // Update recipe ny id
+        // Update recipe by id
         const updatedRecipe = await RecipeModel.findByIdAndUpdate(req.params.id, req.body, { new: true })
         // Return response
         res.json(updatedRecipe)
